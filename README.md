@@ -5,20 +5,20 @@ Transfer Alignment Network is a stack of autoencoder, transfer aligner
 layers and mlp networks.
 
 ## Code structure
-`./model`: python scripts for model definition
+`./src/model`: python scripts for model definition
 
-`./train`: python scripts for train and test models defined in `./model`
+`./src/train`: python scripts for train and test models defined in `./src/model`
 
-`./demo`: demo shell script for batch execution of training codes in `./train`
+`./src/demo`: demo shell script for batch execution of training codes in `./src/train`
 
 ## Naming convention
-**auto_encoder**, **ae**: Autoencoder
+**auto_encoder** (ae): Autoencoder
 
 **mlp**: Multilayer Perceptron
 
 **v1**: Multilayer Perceptron on top of Autoencoder
 
-**transfer aligner**, **aligner**: Transfer Alignment Layer connecting source and
+**transfer aligner** (aligner): Transfer Alignment Layer connecting source and
 target Autoencoder
 
 **v2**: Multilayer Perceptron on top of Transfer Alignment Layer and Autoencoder
@@ -52,9 +52,9 @@ source ae_train -> source v1_train -> target ae_train -> target mn_train -> targ
 	* columns in log files for classifier training are loss, test loss, test_accuracy, auc_roc, auc_pr
 
 ## Demo
-* There is a demo script `demo/script.sh`
+* There is a demo script `src/demo/script.sh`
     * Input: `data/sensorless`
-    * Output: `results/step1`, `results/step2`, `results/step3`, `results/step4`, `results/test`
+    * Output: `src/results/step1`, `src/results/step2`, `src/results/step3`, `src/results/step4`, `src/results/test`
         * log files for step1, 3, 4 are loss, test loss, test_diff, test_rel_diff
         * log files for step2 is loss, test loss, test_accuracy, auc_roc, auc_pr
         * log files for test is test loss, test_accuracy, auc_roc, auc_pr
